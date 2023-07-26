@@ -9,7 +9,7 @@
         name: nginx
         state: stopped
 
-    - name: Renew hostileadmin cert
+    - name: Renew SSL certificate
       command:
         cmd: certbot certonly --standalone --preferred-challenges http {{ certbotdomains }}
 
