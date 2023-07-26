@@ -1,0 +1,19 @@
+---
+- hosts: temple
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Stop nginx
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Renew hostileadmin cert
+      command:
+        cmd: certbot certonly --standalone --preferred-challenges http {{ certbotdomains }}
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
