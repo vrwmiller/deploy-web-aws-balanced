@@ -1,7 +1,7 @@
 ---
 
 - name: AWS Web Setup
-  hosts: hostileadminweb
+  hosts: tag_Name_hostileadminweb
   user: "{{ clouduser }}"
   become: yes
   become_user: "{{ becomeuser }}"
