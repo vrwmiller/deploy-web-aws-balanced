@@ -3,5 +3,6 @@ ansible/inventory/aws_ec2.yml
 terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/.terraform*
+terraform/*.tfstate
 terraform/*.tfstate.*
 terraform/variables.tf
