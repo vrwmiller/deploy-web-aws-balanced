@@ -2,7 +2,7 @@
 
 - name: AWS Web Setup
   hosts: hostileadminweb
-  user: ec2-user
+  user: "{{ clouduser }}"
   become: yes
   become_user: root
 
