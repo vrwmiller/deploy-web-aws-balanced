@@ -15,7 +15,8 @@
       with_items:
         - epel
         - nginx1
-      when: update == "true"
+      tags:
+        - update
     - name: Install/update packages
       yum:
         name: "{{ item }}"
@@ -25,14 +26,16 @@
         - nc
         - nmap
         - '*'
-      when: update == "true"
+      tags:
+        - update
       notify: Reboot
 
     - name: Setup filesystem for git repo
       file:
         state: absent
         path: "{{ docroot  }}"
-      when: deployweb == "true"
+      tags:
+        - deployweb
     - name: Clone git repo
       git:
         repo: '{{ siterepo }}'
@@ -40,7 +43,8 @@
         accept_hostkey: yes
         single_branch: yes
         version: master
-      when: deployweb == "true"
+      tags:
+        - deployweb
 
     - name: Restart nginx
       service:
