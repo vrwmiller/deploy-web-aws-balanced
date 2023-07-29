@@ -1,0 +1,53 @@
+---
+
+- name: AWS Web Setup
+  hosts: hostileadminweb
+  user: ec2-user
+  become: yes
+  become_user: root
+
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: Install AWS EPEL, nginx
+      command: amazon-linux-extras install "{{ item }}" -y
+      with_items:
+        - epel
+        - nginx1
+      when: update == "true"
+    - name: Install/update packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - git
+        - nc
+        - nmap
+        - '*'
+      when: update == "true"
+      notify: Reboot
+
+    - name: Setup filesystem for git repo
+      file:
+        state: absent
+        path: "{{ docroot  }}"
+      when: deployweb == "true"
+    - name: Clone git repo
+      git:
+        repo: '{{ siterepo }}'
+        dest: "{{ docroot }}"
+        accept_hostkey: yes
+        single_branch: yes
+        version: master
+      when: deployweb == "true"
+
+    - name: Restart nginx
+      service:
+        name: nginx
+        enabled: yes
+        state: restarted
+
+  handlers:
+    - name: Reboot
+      reboot:
