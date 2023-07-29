@@ -1,4 +1,5 @@
 ansible/inventory/group_vars/temple.yml
+ansible/inventory/aws_ec2.yml
 terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/.terraform*
