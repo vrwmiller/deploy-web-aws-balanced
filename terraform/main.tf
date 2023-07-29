@@ -50,7 +50,7 @@ resource "aws_security_group" "allow_ssh_sg1" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [ var.selfa ]
+    cidr_blocks = [ var.selfa, var.selfb ]
   }
 
   egress {
