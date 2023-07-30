@@ -1,6 +1,6 @@
 # temple
 
-hostileadmin deployment code
+deployment code
 
 # Terraform
 
