@@ -2,7 +2,7 @@
 
 # Ansible Inventory
 
-* `ansible/inventory/aws_ec2.yml.sample` is a smaple dynamic inventory module for Ansible. Installation instrucitons: https://devopscube.com/setup-ansible-aws-dynamic-inventory/
+* `ansible/inventory/aws_ec2.yml.sample` is a smaple dynamic AWS inventory module for Ansible. Installation instrucitons: https://devopscube.com/setup-ansible-aws-dynamic-inventory/
 
 # Playbooks
 
