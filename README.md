@@ -4,7 +4,7 @@
 
 ## Infrastructure
 
-Two EC2 instances running nginx in separate target groups attached to an application load balancer. EC2 instances are deployed in separate AZs in the same region.
+Two EC2 instances running nginx in separate target groups attached to an application load balancer. EC2 instances are deployed initially in separate AZs in the same region.
 
 # Ansible
 
