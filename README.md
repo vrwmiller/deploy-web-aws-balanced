@@ -6,7 +6,9 @@ hostileadmin deployment code
 
 ## Infrastructure
 
-Two EC2 instances running nginx in separate target groups attached to an application load balancer. EC2 instances are deployed initially in separate AZs in the same region.
+Two AWS EC2 instances running nginx in separate target groups attached to an Application Load Balancer. EC2 instances are deployed initially in separate AZs in the same region.
+
+A droplet on Digital Ocean running nginx.
 
 # Ansible
 
