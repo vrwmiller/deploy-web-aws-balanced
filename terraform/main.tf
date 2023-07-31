@@ -129,7 +129,7 @@ module "alb" {
 
   target_groups = [
     {
-      name_prefix      = "pref-"
+      name_prefix      = "pref1-"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
@@ -137,7 +137,15 @@ module "alb" {
         {
           target_id = "${aws_instance.web1.id}"
           port = 80
-        },
+        }
+      ]
+    },
+    {
+      name_prefix      = "pref2-"
+      backend_protocol = "HTTP"
+      backend_port     = 80
+      target_type      = "instance"
+      targets = [
         {
           target_id = "${aws_instance.web2.id}"
           port = 80
