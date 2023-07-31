@@ -55,6 +55,7 @@
       tags:
         - all
         - deployweb
+        - restartweb
 
   handlers:
     - name: Reboot
