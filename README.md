@@ -10,7 +10,7 @@ deployment code
 
 * A droplet on Digital Ocean running nginx.
 
-# Interface
+## Interface
 
 * Describe current infrastructure
 
