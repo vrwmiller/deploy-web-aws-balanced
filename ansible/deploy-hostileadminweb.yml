@@ -13,6 +13,7 @@
         - epel
         - nginx1
       tags:
+        - all
         - update
     - name: Install/update packages
       yum:
@@ -24,6 +25,7 @@
         - nmap
         - '*'
       tags:
+        - all
         - update
       notify: Reboot
 
@@ -32,6 +34,7 @@
         state: absent
         path: "{{ docroot  }}"
       tags:
+        - all
         - deployweb
     - name: Clone git repo
       git:
@@ -41,6 +44,7 @@
         single_branch: yes
         version: master
       tags:
+        - all
         - deployweb
 
     - name: Restart nginx
@@ -48,6 +52,9 @@
         name: nginx
         enabled: yes
         state: restarted
+      tags:
+        - all
+        - deployweb
 
   handlers:
     - name: Reboot
