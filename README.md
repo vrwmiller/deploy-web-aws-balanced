@@ -18,14 +18,26 @@ A droplet on Digital Ocean running nginx.
 
 ## Playbooks
 
-* Check SSL certificate validity
+* letsencrypt: Check SSL certificate validity
 
 ```
 ansible-playbook letsencrypt.yml -i inventory --tags test --ask-become-pass
 ```
 
-* Renew SSL certificate
+* letsencrypt: Renew SSL certificate
 
 ```
 ansible-playbook letsencrypt.yml -i inventory --tags enroll --ask-become-pass
+```
+
+* deploy-web: Deploy website
+
+```
+ansible-playbook deploy-web.yml -i inventory --tags all
+```
+
+* deploy-web: Restart nginx
+
+```
+ansible-playbook deploy-web.yml -i inventory --tags restartweb
 ```
