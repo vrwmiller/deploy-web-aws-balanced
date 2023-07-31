@@ -12,7 +12,7 @@ deployment code
 
 # Interface
 
-* Describe currecnt infrastructure
+* Describe current infrastructure
 
 ```
 cd terraform
