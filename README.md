@@ -6,9 +6,18 @@ deployment code
 
 ## Infrastructure
 
-Two AWS EC2 instances running nginx in separate target groups attached to an Application Load Balancer. EC2 instances are deployed initially in separate AZs in the same region.
+* AWS EC2 instances x2 running nginx in separate target groups attached to an Application Load Balancer. EC2 instances are deployed initially in separate AZs in the same region.
 
-A droplet on Digital Ocean running nginx.
+* A droplet on Digital Ocean running nginx.
+
+# Interface
+
+* Describe currecnt infrastructure
+
+```
+cd terraform
+tf show
+```
 
 # Ansible
 
