@@ -174,6 +174,8 @@ module "nlb" {
   tags = {
     Environment = "Test"
   }
+
+  enable_deletion_protection = false
 }
 
 data "aws_ami" "latest-amzn2" {
