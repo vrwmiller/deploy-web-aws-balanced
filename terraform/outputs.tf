@@ -27,6 +27,6 @@ output "web2_public_dns" {
   value       = aws_instance.web2.public_dns
 }
 output "lb_dns_name" {
-  description = "Public A record of the alb"
-  value       = module.alb.lb_dns_name
+  description = "Public A record of the nlb"
+  value       = module.nlb.lb_dns_name
 }

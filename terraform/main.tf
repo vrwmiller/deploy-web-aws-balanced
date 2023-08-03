@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+      version = "~> 4.59"
     }
   }
 
@@ -111,17 +111,17 @@ resource "aws_instance" "web2" {
   }
 }
 
-module "alb" {
+module "nlb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "~> 6.0"
+  version = "~> 8.0"
 
-  name = "alb1"
+  name = "nlb1"
 
-  load_balancer_type = "application"
+  load_balancer_type = "network"
 
   vpc_id             = "vpc-fe066986"
   subnets            = ["subnet-d64e26b2", "subnet-4490356b"]
-  security_groups    = [ "${aws_security_group.allow_www_sg1.id}" ]
+  #security_groups    = [ "${aws_security_group.allow_www_sg1.id}" ]
 
   #access_logs = {
   #  bucket = var.lblogs
@@ -130,7 +130,7 @@ module "alb" {
   target_groups = [
     {
       name_prefix      = "pref1-"
-      backend_protocol = "HTTP"
+      backend_protocol = "TCP"
       backend_port     = 80
       target_type      = "instance"
       targets = [
@@ -142,7 +142,7 @@ module "alb" {
     },
     {
       name_prefix      = "pref2-"
-      backend_protocol = "HTTP"
+      backend_protocol = "TCP"
       backend_port     = 80
       target_type      = "instance"
       targets = [
@@ -166,7 +166,7 @@ module "alb" {
   http_tcp_listeners = [
     {
       port               = 80
-      protocol           = "HTTP"
+      protocol           = "TCP"
       target_group_index = 0
     }
   ]
