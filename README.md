@@ -1,14 +1,12 @@
-# temple
+# deploy-web-aws-balance
 
-deployment code
+Deploy a load balanced website on AWS
 
 # Terraform
 
 ## Infrastructure
 
-* AWS EC2 instances x2 running nginx in separate target groups attached to an Application Load Balancer. EC2 instances are deployed initially in separate AZs in the same region.
-
-* A droplet on Digital Ocean running nginx.
+* AWS EC2 instances x2 running nginx in separate target groups attached to an Network Load Balancer. EC2 instances are deployed in separate AZs in the same region.
 
 ## Interface
 
