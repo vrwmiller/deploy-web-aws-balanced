@@ -4,6 +4,34 @@ Deploy a load balanced website on AWS
 
 # Terraform
 
+## Variables
+
+Define the following variables in variables.tf where CIDR is an IP and netmask
+
+```
+$ cat variables.tf 
+variable "selfa" {
+  description = "Home IP"
+  type        = string
+  default     = "CIDR"
+}
+variable "selfb" {
+  description = "temple IP"
+  type        = string
+  default     = "CIDR"
+}
+variable "keyname" {
+  description = "keyname"
+  type        = string
+  default     = "yourkey"
+}
+variable "instance_name" {
+  description = "instance name"
+  type        = string
+  default     = "web"
+}
+```
+
 ## Infrastructure
 
 * AWS EC2 instances x2 running nginx in separate target groups attached to an Network Load Balancer. EC2 instances are deployed in separate AZs in the same region.
